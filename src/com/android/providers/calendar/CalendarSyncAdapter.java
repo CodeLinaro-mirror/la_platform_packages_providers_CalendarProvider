@@ -1397,6 +1397,11 @@ public final class CalendarSyncAdapter extends AbstractGDataSyncAdapter {
             cursorB = SubscribedFeeds.Feeds.query(cr, FEEDS_KEY_COLUMNS,
                     SubscribedFeeds.Feeds.AUTHORITY + "=?", new String[]{Calendar.AUTHORITY},
                     FEEDS_KEY_SORT_ORDER);
+            if (cursorB == null) {
+                // This will happen if subscribed feeds are not installed. Get out since there
+                // are no feeds to manipulate.
+                return;
+            }
             int urlIndexB = cursorB.getColumnIndexOrThrow(SubscribedFeeds.Feeds.FEED);
             int accountNameIndexB =
                     cursorB.getColumnIndexOrThrow(SubscribedFeeds.Feeds._SYNC_ACCOUNT);
