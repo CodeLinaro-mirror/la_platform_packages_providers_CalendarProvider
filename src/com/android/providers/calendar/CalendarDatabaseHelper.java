@@ -800,11 +800,39 @@ import java.util.TimeZone;
                 Calendars.CAL_SYNC10 + " TEXT" +
                 ");");
 
+        createLocalAccountInCalendarsTable(db);
+
         // Trigger to remove a calendar's events when we delete the calendar
         db.execSQL("CREATE TRIGGER calendar_cleanup DELETE ON " + Tables.CALENDARS + " " +
                 "BEGIN " +
                 CALENDAR_CLEANUP_TRIGGER_SQL +
                 "END");
+    }
+
+    /**
+     * Create a Local account in Calendars table.
+     * @param db The database
+     */
+    private void createLocalAccountInCalendarsTable(SQLiteDatabase db) {
+        String localName = "Local";
+        String localColor = "-9215145";
+        String localAccessLevel = "700";
+        String localSyncEvents = "0";
+        db.execSQL("INSERT INTO " + Tables.CALENDARS + " (" +
+                Calendars.ACCOUNT_NAME + ", " +
+                Calendars.ACCOUNT_TYPE + ", " +
+                Calendars.CALENDAR_DISPLAY_NAME + ", " +
+                Calendars.CALENDAR_COLOR + ", " +
+                Calendars.CALENDAR_ACCESS_LEVEL + ", " +
+                Calendars.SYNC_EVENTS + ", " +
+                Calendars.OWNER_ACCOUNT + ") VALUES (" +
+                "'" + localName + "'," +
+                "'" + CalendarContract.ACCOUNT_TYPE_LOCAL + "'," +
+                "'" + localName + "'," +
+                "'" + localColor + "'," +
+                "'" + localAccessLevel + "'," +
+                "'" + localSyncEvents + "'," +
+                "'" + localName + "');" );
     }
 
     private void createCalendarsTable305(SQLiteDatabase db) {
