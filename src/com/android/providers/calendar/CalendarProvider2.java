@@ -1018,6 +1018,10 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
                 qb.setTables(Tables.CALENDAR_CACHE);
                 qb.setProjectionMap(sCalendarCacheProjectionMap);
                 break;
+            case WEEK_START_DAY:{
+               qb.setTables(Tables.WEEK_START_DAY);
+                break;
+            }
             default:
                 throw new IllegalArgumentException("Unknown URL " + uri);
         }
@@ -2371,6 +2375,9 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
             case EMMA:
                 // Special target used during code-coverage evaluation.
                 handleEmmaRequest(values);
+                break;
+            case WEEK_START_DAY:
+                mDb.insert(Tables.WEEK_START_DAY, null, values);
                 break;
             case EVENTS_ID:
             case REMINDERS_ID:
@@ -4204,6 +4211,10 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
                 }
                 return result;
             }
+            case WEEK_START_DAY: {
+                return mDb.update(Tables.WEEK_START_DAY, values, selection,
+                     selectionArgs);
+        }
 
             default:
                 throw new IllegalArgumentException("Unknown URL " + uri);
@@ -4636,6 +4647,7 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
     private static final int EXCEPTION_ID2 = 30;
     private static final int EMMA = 31;
     private static final int COLORS = 32;
+    private static final int WEEK_START_DAY = 33;
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     private static final HashMap<String, String> sInstancesProjectionMap;
@@ -4686,6 +4698,7 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
         sUriMatcher.addURI(CalendarContract.AUTHORITY, "exception/#/#", EXCEPTION_ID2);
         sUriMatcher.addURI(CalendarContract.AUTHORITY, "emma", EMMA);
         sUriMatcher.addURI(CalendarContract.AUTHORITY, "colors", COLORS);
+        sUriMatcher.addURI(CalendarContract.AUTHORITY, "week_start_day", WEEK_START_DAY);
 
         /** Contains just BaseColumns._COUNT */
         sCountProjectionMap = new HashMap<String, String>();
