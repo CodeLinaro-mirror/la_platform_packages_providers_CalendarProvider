@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2017, The Linux Foundation. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+    * Neither the name of The Linux Foundation nor the names of its
+      contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<resources>
+    <string name="calendar_storage">કેલેન્ડર સંગ્રહ</string>
+    <string name="upgrade_msg">કેલેન્ડર ડેટા અપગ્રેડ કરવો.</string>
+    <string name="calendar_default_name">ડિફોલ્ટ</string>
+    <string name="calendar_info">કેલેન્ડર માહિતી</string>
+    <string name="calendar_info_error">ભૂલ</string>
+    <string name="calendar_info_no_calendars">કોઇ કેલેન્ડર્સ નથી</string>
+    <string name="calendar_info_events">ઇવેન્ટ્સ: %1$d</string>
+    <string name="calendar_info_events_dirty">ઇવેન્ટ્સ: %1$d, સેવ નથી કર્યુ: %2$d</string>
+    <string name="provider_label">કૅલેન્ડર</string>
+    <string name="debug_tool_delete_button">હમણાં હટાવો</string>
+    <string name="debug_tool_start_button">પ્રારંભ કરો</string>
+    <string name="debug_tool_message">તમે 1) SD કાર્ડ/USB સંગ્રહ ઉપર તમારા કેલેન્ડર ડેટાબેઝની કોપી કરવાની તૈયારીમાં છો કે જે કોઈપણ એપ દ્વારા વાંચી શકાય તેમ છે અને 2) તેને ઈમેઈલ કરવા માટે તૈયાર છો. જેવી તમે ડિવાઇસ ઉપર સફળતાપૂર્વક તેની કોપી કરી લીધી હોય અથવા ઈમેઈલ મળ્યો હોય કે તરત જ કોપીને ડીલીટ કરવાનું યાદ રાખો.</string>
+    <string name="debug_tool_email_sender_picker">તમારી ફાઇલ મોકલવા માટે પ્રોગ્રામ પસંદ કરો</string>
+    <string name="debug_tool_email_subject">કેલેન્ડર Db જોડાયાં</string>
+    <string name="debug_tool_email_body">એટેચ છે તે મારી બધીજ એપોઈન્ટમેન્ટસ અને અંગત માહિતી સાથેનો મારો કેલેન્ડર ડેટાબેઝ છે. કાળજી સાથે દેખરેખ રાખો.</string>
+</resources>

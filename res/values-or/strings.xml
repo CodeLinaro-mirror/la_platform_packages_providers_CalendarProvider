@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2017, The Linux Foundation. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+    * Neither the name of The Linux Foundation nor the names of its
+      contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<resources>
+    <string name="calendar_storage">କ୍ୟାଲେଣ୍ଡର୍‌ ଷ୍ଟୋରେଜ୍</string>
+    <string name="upgrade_msg">କ୍ୟାଲେଣ୍ଡର ଡାଟାବେସ୍ ଅପଗ୍ରେଡ୍ କରୁଛି</string>
+    <string name="calendar_default_name">ଡିଫଲ୍ଟ</string>
+    <string name="calendar_info">କ୍ୟାଲେଣ୍ଡର୍‌ ସୂଚନା</string>
+    <string name="calendar_info_error">ତ୍ରୁଟି</string>
+    <string name="calendar_info_no_calendars">କୌଣସି କ୍ୟାଲେଣ୍ଡର୍‌ ନାହିଁ</string>
+    <string name="calendar_info_events">ଇଭେଣ୍ଟସ୍‌: %1$d</string>
+    <string name="calendar_info_events_dirty">ଇଭେଣ୍ଟସ୍‌: %1$d, ସଞ୍ଚୟ ହୋ‍ଇନାହିଁ: %2$d</string>
+    <string name="provider_label">କ୍ୟାଲେଣ୍ଡର୍</string>
+    <string name="debug_tool_delete_button">ବର୍ତ୍ତମାନ ବିଲୋପ କରନ୍ତୁ</string>
+    <string name="debug_tool_start_button">ଆରମ୍ଭ</string>
+    <string name="debug_tool_message">ଆପଣଙ୍କ 1) କ୍ୟାଲେଣ୍ଡର୍‌ ଡାଟାବେସ୍ ଏକ କପି ଆପଣ SD କାର୍ଡ/USB ଷ୍ଟୋରେଜ୍‌ରେ ସଞ୍ଚୟ କରିବାକୁ ଯାଉଛନ୍ତି ଯାହା ଯେକୌଣସି ଆପ୍ଲିକେସନ୍‌ ଦ୍ଵାରା ପଠନଯୋଗ୍ୟ, ଏବଂ 2) ଏହାକୁ ଇମେଲ୍ କରାଯାଇ ପାରିବ। ଆପଣ ସଫଳତାର ସହ ଏହାକୁ ଡିଭାଇସ୍‌ ବାହାରେ କପି କରିବା ପରେ କିମ୍ବା ଇମେଲ୍ ପ୍ରାପ୍ତ କରିସାରିବା ପରେ କପିକୁ ଯଥା ଶୀଘ୍ର ବିଲୋପ କରିବାକୁ ମନେରଖନ୍ତୁ।</string>
+    <string name="debug_tool_email_sender_picker">ଆପଣଙ୍କ ଫାଇଲ ପଠାଇବାକୁ ଏକ ପ୍ରୋଗ୍ରାମ ବାଛନ୍ତୁ</string>
+    <string name="debug_tool_email_subject">କ୍ୟାଲେଣ୍ଡର୍ Db ସଂଲଗ୍ନ ହୋଇଛି</string>
+    <string name="debug_tool_email_body">ମୋ ସମସ୍ତ ଆପଏଣ୍ଟମେଣ୍ଟ ଏବଂ ବ୍ୟକ୍ତିଗତ ସୂଚନା ମୋ କ୍ୟାଲେଣ୍ଡର୍ ଡାଟାବେସ୍ ସହ ସଂଲଗ୍ନ ହୋଇଛି। ଯତ୍ନର ସହ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ। ସତର୍କତାର ସହ ହ୍ୟାଣ୍ଡେଲ୍‌।</string>
+</resources>
