@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2017, The Linux Foundation. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+    * Neither the name of The Linux Foundation nor the names of its
+      contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<resources>
+    <string name="calendar_storage">ক্যালেন্ডার স্টোরেজ</string>
+    <string name="upgrade_msg">আপগ্রেড করা ক্যালেন্ডার ডাটাবেস।</string>
+    <string name="calendar_default_name">ডিফল্ট</string>
+    <string name="calendar_info">ক্যালেন্ডার তথ্য</string>
+    <string name="calendar_info_error">ত্রুটি</string>
+    <string name="calendar_info_no_calendars">ক্যালেন্ডার নয়</string>
+    <string name="calendar_info_events">ইভেন্টগুলি: %1$d</string>
+    <string name="calendar_info_events_dirty">ইভেন্টগুলি: %1$d, অসংরক্ষিত: %2$d</string>
+    <string name="provider_label">ক্যালেন্ডার</string>
+    <string name="debug_tool_delete_button">এখন মুছুন</string>
+    <string name="debug_tool_start_button">আরম্ভ</string>
+    <string name="debug_tool_message">আপনি 1) SD কার্ড/ USB স্টোরেজ, যা কোনো অ্যাপ্লিকেশন দ্বারা পাঠযোগ্য আপনার ক্যালেন্ডার ডেটাবেসে কপি করতে, এবং 2) এটি ইমেল করতে যাচ্ছেন। আপনি সফলভাবে ডিভাইসের বাইরে এটা কপি করা বা ইমেল পাওয়ার পর যত তাড়াতাড়ি সম্ভব কপি মুছে দিতে মনে রাখুন।</string>
+    <string name="debug_tool_email_sender_picker">আপনার ফাইলে পাঠানোর জন্য একটি প্রোগ্রাম নির্বাচন করুন</string>
+    <string name="debug_tool_email_subject">ক্যালেন্ডার Db সংযুক্ত</string>
+    <string name="debug_tool_email_body">আমার সকল এপয়েন্টমেন্টস এবং ব্যক্তিগত তথ্য সহ আমার ক্যালেন্ডার ডাটাবেস সংযুক্ত। যত্ন সহকারে ব্যবহার করুন।</string>
+</resources>
