@@ -3368,12 +3368,17 @@ import java.util.TimeZone;
      */
     protected void duplicateEvent(final long id) {
         final SQLiteDatabase db = getWritableDatabase();
-        final long canPartiallyUpdate = DatabaseUtils.longForQuery(db, "SELECT "
-                + Calendars.CAN_PARTIALLY_UPDATE + " FROM " + Views.EVENTS
-                + " WHERE " + Events._ID + " = ?", new String[]{
-                String.valueOf(id)
-        });
-        if (canPartiallyUpdate == 0) {
+        try {
+            final long canPartiallyUpdate = DatabaseUtils.longForQuery(db, "SELECT "
+                    + Calendars.CAN_PARTIALLY_UPDATE + " FROM " + Views.EVENTS
+                    + " WHERE " + Events._ID + " = ?", new String[]{
+                    String.valueOf(id)
+            });
+            if (canPartiallyUpdate == 0) {
+                return;
+            }
+        } catch (SQLiteDoneException e) {
+            Log.e(TAG, "duplicateEvent: SQLiteDoneException, ", e);
             return;
         }
 
