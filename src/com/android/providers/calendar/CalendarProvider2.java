@@ -450,6 +450,10 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
 
     /** set to 'true' to enable debug logging for recurrence exception code */
     private static final boolean DEBUG_EXCEPTION = false;
+    
+    private static final String SELECTION_PRIMARY_CALENDAR =
+            Calendars.IS_PRIMARY + "= 1"
+                    + " OR " + Calendars.ACCOUNT_NAME + "=" + Calendars.OWNER_ACCOUNT;
 
     private final ThreadLocal<Boolean> mCallingPackageErrorLogged = new ThreadLocal<Boolean>();
 
@@ -461,6 +465,8 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
 
     private final ThreadLocal<Integer> mCallingUid = new ThreadLocal<>();
     private final ProviderAccessStats mStats = new ProviderAccessStats();
+
+    private int mParentUserId;
 
     /**
      * Listens for timezone changes and disk-no-longer-full events
@@ -544,6 +550,8 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
 
         // This is pulled out for testing
         initCalendarAlarm();
+
+        mParentUserId = getParentUserId();
 
         postInitialize();
 
@@ -808,12 +816,25 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
         mCalendarAlarm.rescheduleMissedAlarms();
     }
 
+    @VisibleForTesting
+    protected int getParentUserId() {
+        final UserManager userManager = mContext.getSystemService(UserManager.class);
+        final UserInfo parentUser = userManager.getProfileParent(UserHandle.myUserId());
+        return parentUser == null ? UserHandle.USER_NULL : parentUser.id;
+    }
 
     @Override
     protected void notifyChange(boolean syncToNetwork) {
         // Note that semantics are changed: notification is for CONTENT_URI, not the specific
         // Uri that was modified.
         mContentResolver.notifyChange(CalendarContract.CONTENT_URI, null, syncToNetwork);
+        // If this is a managed profile CalendarProvider, notify the content observers of
+        // enterprise uris in the parent profile.
+        if (mParentUserId != UserHandle.USER_NULL) {
+            mContentResolver.notifyChange(
+                    CalendarContract.ENTERPRISE_CONTENT_URI,
+                    /* observer = */ null, /* syncToNetwork = */ false, mParentUserId);
+        }
     }
 
     /**
@@ -902,6 +923,12 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
                         getCallingPackageName(), workProfileUserId);
     }
 
+    private String appendPrimaryOnlyToSelection(String selection) {
+        return TextUtils.isEmpty(selection)
+                ? SELECTION_PRIMARY_CALENDAR
+                : selection + " AND (" +  SELECTION_PRIMARY_CALENDAR + ")";
+    }
+
     private Cursor queryWorkProfileProvider(Uri localUri, String[] projection,
             String selection, String[] selectionArgs, String sortOrder,
             List<String> additionalPathSegments) {
@@ -922,6 +949,9 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
                 remoteUri = Uri.withAppendedPath(remoteUri, segment);
             }
         }
+
+        selection = appendPrimaryOnlyToSelection(selection);
+
         final Cursor cursor = getContext().getContentResolver().query(remoteUri, projection,
                 selection, selectionArgs, sortOrder);
         return cursor == null ? createEmptyCursor(projection) : cursor;
@@ -4291,8 +4321,6 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
                     }
 
                     if (events.getCount() == 0) {
-                        Log.i(TAG, "No events to update: uri=" + uri + " selection=" + selection +
-                                " selectionArgs=" + Arrays.toString(selectionArgs));
                         return 0;
                     }
 
@@ -4938,7 +4966,7 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
         sCalendarsProjectionMap.put(Calendars.CALENDAR_TIME_ZONE, Calendars.CALENDAR_TIME_ZONE);
         sCalendarsProjectionMap.put(Calendars.OWNER_ACCOUNT, Calendars.OWNER_ACCOUNT);
         sCalendarsProjectionMap.put(Calendars.IS_PRIMARY,
-                "COALESCE(" + Events.IS_PRIMARY + ", "
+                "COALESCE(" + Calendars.IS_PRIMARY + ", "
                         + Calendars.OWNER_ACCOUNT + " = " + Calendars.ACCOUNT_NAME + ") AS "
                         + Calendars.IS_PRIMARY);
         sCalendarsProjectionMap.put(Calendars.CAN_ORGANIZER_RESPOND,
@@ -5024,6 +5052,10 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
         sEventsProjectionMap.put(Calendars.MAX_REMINDERS, Calendars.MAX_REMINDERS);
         sEventsProjectionMap.put(Calendars.CAN_ORGANIZER_RESPOND, Calendars.CAN_ORGANIZER_RESPOND);
         sEventsProjectionMap.put(Calendars.CAN_MODIFY_TIME_ZONE, Calendars.CAN_MODIFY_TIME_ZONE);
+        sEventsProjectionMap.put(Calendars.IS_PRIMARY,
+                "COALESCE(" + Calendars.IS_PRIMARY + ", "
+                        + Calendars.OWNER_ACCOUNT + " = " + Calendars.ACCOUNT_NAME + ") AS "
+                        + Calendars.IS_PRIMARY);
         sEventsProjectionMap.put(Events.DISPLAY_COLOR, Events.DISPLAY_COLOR);
 
         // Put the shared items into the Instances projection map
