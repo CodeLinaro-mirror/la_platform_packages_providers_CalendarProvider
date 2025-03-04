@@ -85,7 +85,7 @@ public class CalendarReceiver extends BroadcastReceiver {
      * We don't expect this to be called more than once.  If it were, we would have to
      * worry about serializing the use of the service.
      */
-    static void removeScheduledAlarms(ContentResolver resolver) {
+    private void removeScheduledAlarms(ContentResolver resolver) {
         resolver.update(CalendarAlarmManager.SCHEDULE_ALARM_REMOVE_URI, null /* values */,
                 null /* where */, null /* selectionArgs */);
     }
